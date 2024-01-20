@@ -1,0 +1,221 @@
+@import url(reset.css);
+
+body {
+  overflow: hidden;
+}
+
+* {
+  user-select: none;
+}
+.gira {
+  display: none;
+  color: #ff1c00;
+  font-weight: 700;
+  font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+.top-stuff {
+  display: flex;
+}
+
+.curva {
+  transform: scale(1.1);
+  width: 100%;
+  height: 32vmin;
+  border-bottom: #fef4db 3px solid;
+  border-radius: 100%;
+  position: absolute;
+  top: -20vmin;
+}
+
+.card-wrapper {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 8vmin;
+}
+
+.card-container {
+  position: relative;
+  width: 60vmin;
+  aspect-ratio: 3.5 / 4.2;
+}
+
+.card {
+  width: 45vmin;
+  aspect-ratio: 3.5 / 4.2;
+  position: absolute;
+  top: 0;
+  left: 7.5vmin;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-container:hover {
+  animation: swing 1s cubic-bezier(0.55, -0.01, 0.44, 1.01);
+}
+
+.card-container:hover > .card:not(.card-2) {
+  transform: scale(1.1);
+}
+
+.card-content {
+  background: #d9d9d9;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25),
+    0px 13px 13px 0px rgba(0, 0, 0, 0.21), 0px 30px 18px 0px rgba(0, 0, 0, 0.13),
+    0px 54px 22px 0px rgba(0, 0, 0, 0.04), 0px 84px 24px 0px rgba(0, 0, 0, 0);
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-container:hover .card-content {
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  padding: 2vmin;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 2.5vmin;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.card-back > h3 {
+  margin-bottom: 2vmin;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card-1 {
+  transform: rotate(5deg);
+}
+
+.card-2 {
+  transform: scale(1.2) translateY(6.5vmin);
+  z-index: 1000;
+}
+
+.card-3 {
+  transform: rotate(-5deg);
+}
+
+.card:hover .card-content {
+  box-shadow: 0px 21px 47px 0px rgba(0, 0, 0, 0.2),
+    0px 85px 85px 0px rgba(0, 0, 0, 0.17),
+    0px 191px 114px 0px rgba(0, 0, 0, 0.1),
+    0px 339px 136px 0px rgba(0, 0, 0, 0.03),
+    0px 529px 148px 0px rgba(0, 0, 0, 0);
+}
+
+.foto {
+  backface-visibility: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://media.gettyimages.com/id/1347086252/pt/foto/common-chimpanzee.jpg?s=612x612&w=gi&k=20&c=57lWd9rCoK9At3FFM1tnBhPGKlzf8ejJQN_aOCbKBlY=);
+}
+
+.foto-container {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  padding: 2vmin;
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.botoes {
+  font-size: 15vmin;
+  width: 40vmin;
+  height: 20vmin;
+  position: absolute;
+  left: calc(50% - 20vmin);
+  bottom: 3vmin;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+}
+
+i {
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.25),
+    0px 13px 13px rgba(0, 0, 0, 0.21), 0px 30px 18px rgba(0, 0, 0, 0.13),
+    0px 54px 22px rgba(0, 0, 0, 0.04), 0px 84px 24px rgba(0, 0, 0, 0);
+  transition: all 0.5s;
+}
+
+i:hover {
+  transform: scale(1.2);
+  text-shadow: 0px 21px 47px rgba(0, 0, 0, 0.308),
+    0px 85px 85px rgba(0, 0, 0, 0.349), 0px 191px 114px rgba(0, 0, 0, 0.199),
+    0px 339px 136px rgba(0, 0, 0, 0.11), 0px 529px 148px rgba(0, 0, 0, 0);
+}
+
+button {
+  background: none;
+  border: none;
+  color: #ff1c00;
+}
+
+.card-wrapper[data-status='unknown'] {
+  transform: scale(0);
+}
+
+.card-wrapper[data-status='after'] {
+  animation: leaving 2s cubic-bezier(0.14, 0.87, 0.57, 1) forwards;
+}
+
+.card-wrapper[data-status='active'] {
+  opacity: 1;
+  transform: scale(1) translate(100vmax, -24vmin) rotate(-14deg);
+  transition: transform ease-out;
+  animation: entering 2s cubic-bezier(0.14, 0.87, 0.57, 1) forwards;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  80% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes leaving {
+  100% {
+    transform: translate(-100vmax, -24vmin) rotate(14deg);
+  }
+}
+
+@keyframes entering {
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@media (orientation: portrait) {
+  .gira {
+    display: unset;
+  }
+  .wrapper {
+    display: none;
+  }
+}

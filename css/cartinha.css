@@ -1,0 +1,59 @@
+@import url(reset.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Linden+Hill:ital@0;1&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  color: #e0e1f4;
+}
+
+p {
+  text-indent: 50px;
+  font-size: 1.5em;
+  line-height: 2;
+  margin-bottom: 7px;
+}
+
+p:first-of-type {
+  margin-top: 15px;
+}
+#content {
+  min-height: 100vh;
+  width: 80vw;
+
+  background-color: #282d6c;
+
+  padding: 7vw 7vw 3vw 7vw;
+
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25),
+    0px 13px 13px 0px rgba(0, 0, 0, 0.21), 0px 30px 18px 0px rgba(0, 0, 0, 0.13),
+    0px 54px 22px 0px rgba(0, 0, 0, 0.04), 0px 84px 24px 0px rgba(0, 0, 0, 0);
+}
+
+body {
+  background-attachment: fixed;
+  width: auto;
+  height: auto;
+}
+
+#momentos > h1 {
+  margin-top: 30px;
+  font-size: 2.5em;
+}
+
+#momentos {
+  min-height: 250px;
+}
+span {
+  border-right: 0.05em solid;
+  animation: blink 1s steps(1) infinite;
+}
+
+.single {
+  margin-top: 30px;
+  text-indent: 0;
+}

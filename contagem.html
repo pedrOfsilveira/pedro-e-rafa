@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem!</title>
+  <link rel="stylesheet" href="css/contagem.css">
+</head>
+
+<body>
+  <a href="index.html">
+    <i id="voltar" class="fa-solid fa-circle-xmark"></i>
+  </a>
+  <div id="contagem-div">
+    <h1 id="contagem"></h1>
+    <h2>Pra completar 2 anos de nóis!!</h2>
+  </div>
+  <script>
+
+    var countDownDate = new Date("Jan 22, 2025").getTime();
+
+    var x = setInterval(function () {
+
+      var now = new Date().getTime();
+
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("contagem").innerText = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+
+  </script>
+  <script src="https://kit.fontawesome.com/501000ec5a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
